@@ -45,8 +45,28 @@ table {
 /* || general */
 :root{
 	--app-bg-color: #385061;
+	--app-darker: #293641;
+	--main-font-color: #E5E9F0;
+	--secondary-font-color: #D8DEE9;
+	--app-highlight-color: #D08770;
 }
 
+@font-face {
+	font-family: 'Kanit';
+	font-weight: bold;
+	src: url(fonts/Kanit-Bold.ttf);
+}
+
+@font-face {
+	font-family: 'Kanit';
+	font-weight: 200;
+	src: url(fonts/Kanit-Light.ttf);
+}
+
+hr{
+	width: 100%;
+	border-color: var(--main-font-color);
+}
 body {
     height: 100vh;
     width: 100%;
@@ -59,7 +79,6 @@ body {
 }
 
 /* || app */
-
 #app-background{
 	/* don't like to define this in px, might wanna change later, might not */
 	width: 960px;
@@ -68,4 +87,81 @@ body {
 	border-radius: 32px;
 	box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.35);
 	background-color: var(--app-bg-color);
+
+	display: grid;
+	grid-template-columns: 260px repeat(3, 25%);
+	grid-template-rows: 1fr;
+	grid-template-areas: "menu task task task";
+}
+
+.main-sections-flex{
+	padding: 20px 30px; 
+
+	/* is flex actually necessary? */
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* ||| Menu section */
+#menu-section{
+	background-color: var(--app-darker);
+	border-radius: 32px;
+}
+
+.top-level-header{
+	font-family: Kanit;
+	color: var(--main-font-color);
+	font-size: 40px;
+	font-weight: bold;
+}
+
+#list-section{
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.second-level-header{
+	font-family: Kanit;
+	color: var(--main-font-color);
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.list-button{
+	width: 200px;
+	height: 36px;
+	border-radius: 12px;
+
+	border: none;
+	background-color: var(--app-bg-color);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.button-text-wrapper{
+	width: 180px;
+	font-family: Kanit;
+	font-size: 18px;
+	font-weight: 200;
+
+	color: var(--main-font-color);
+
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#add-list{
+	background-color: var(--app-darker);
+	color: var(--secondary-font-color);
+	height: 20px;
+}
+
+/* ||| Task section */
+#task-section{
+	grid-area: task;
 }
