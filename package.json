@@ -7,6 +7,7 @@
     "webpack": "^5.101.3"
   },
   "devDependencies": {
+    "crypto": "^1.0.1",
     "url-loader": "^4.1.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
