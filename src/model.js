@@ -1,19 +1,13 @@
 
 class Model {
     #taskDict = {};
-    #projectsArray = {};
+    #projectsArray = [];
     #jobTypes = {
-        'add_task': this.#addTask,
-        'add_project': this.#addProject,
-        'remove_task': this.#removeTask,
-        'remove_project': this.#removeProject
+        'add_task': (payload) => this.#addTask(payload),
+        'add_project': (payload) => this.#addProject(payload),
+        'remove_task': (payload) => this.#removeTask(payload),
+        'remove_project': (payload) => this.#removeProject(payload)
     }
-
-    constructor(taskDict, projectsArray, jobTypes) {
-        this.#taskDict = taskDict;
-        this.#projectsArray = projectsArray;
-        this.#jobTypes = jobTypes
-    };
 
     dispatchJob(job) {
         /**
@@ -31,7 +25,7 @@ class Model {
          * returns nothing but pushes task to the #taskArray
          */
         const taskId = task.id;
-        this.#taskDict.taskId = task;
+        this.#taskDict[taskId] = task;
     };
 
     #addProject(project) {
@@ -42,12 +36,12 @@ class Model {
         this.#projectsArray.push(project);
     }
 
-    #removeTask(task_id) {
+    #removeTask(payload) {
         /**
          * receives task_id (string) from dispatchTask
          * returns nothing, deletes task with task_id from #taskDict
          */
-        delete this.#taskDict[task_id]
+        delete this.#taskDict[payload.task_id];
     }
 
     #removeProject(project_name) {
