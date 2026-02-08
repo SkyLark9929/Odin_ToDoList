@@ -52,14 +52,6 @@ class Model {
         const PROJECT_INDEX = this.#projectsArray.indexOf(project_name);
         this.#projectsArray.splice(PROJECT_INDEX, PROJECT_INDEX);
     }
-
-    alertDev() {
-        /**
-         * This method is here just to check what is happening inside the model
-         */
-        console.log(`Saved tasks: ${this.#taskDict.taskId}`);
-        console.log(`Saved projects: ${this.#projectsArray}`);
-    }
 }
 
 export { Model };
