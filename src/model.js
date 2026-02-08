@@ -1,111 +1,71 @@
-import crypto from 'crypto'
 
-function createTask(name, projectId, deadline, priority, description){
-    let name = name;
-    let deadline = deadline;
-    let priority = priority;
-    let description = description;
-    let project = projectId;
-    const id = crypto.randomUUID();
-
-    return {
-        // getters
-        get taskName(){
-            return name;
-        },
-        get taskProject(){
-            return project;
-        },
-        get taskDeadline(){
-            return deadline
-        },
-        get taskPriority(){
-            return priority;
-        },
-        get taskDescription(){
-            return description;
-        },
-        get taskID(){
-            return id;
-        },
-        // setters
-        set taskName(name){
-            name = name;
-        },
-        set taskProject(project){
-            project = project;
-        },
-        set taskDeadline(deadline){
-            deadline = deadline;
-        },
-        set taskPriority(priority){
-            priority = priority;
-        },
-        set taskDescription(description){
-            description = description;
-        }
-     };
-};
-
-function createProject(name){
-    const name = name;
-    const projectId = crypto.randomUUID();
-    let taskArray = [];
-
-    // no direct use, only for model updating
-    function addTask(task){
-        taskArray.append(task)
-    };
-
-    function purgeTasks(){
-        taskArray = []
-    };
-    
-    return {
-        get projectName(){
-            return name
-        },
-
-        get projectId(){
-            return projectId
-        },
-
-        set projectName(name){
-            name = name;
-        },
-        addTask
+class Model {
+    #taskDict = {};
+    #projectsArray = {};
+    #jobTypes = {
+        'add_task': this.#addTask,
+        'add_project': this.#addProject,
+        'remove_task': this.#removeTask,
+        'remove_project': this.#removeProject
     }
-};
 
-const MODEL = () => {
-    let masterArray = []; // holds projects with tasks inside of them
-    let arrayToPost = []; // only holds the part of masterArray that has to be posted
-
-    function addProject(projectName){
-        let project = createProject(projectName);
-        masterArray.append(project);
-        updateSelf();
+    constructor(taskDict, projectsArray, jobTypes) {
+        this.#taskDict = taskDict;
+        this.#projectsArray = projectsArray;
+        this.#jobTypes = jobTypes
     };
 
-    function addTask(task){
-        for(project of masterArray){
-            if(task.project == project.projectId){
-                project.addTask(task);
-            };
-        };
-        updateSelf();
+    dispatchJob(job) {
+        /**
+         * dispatchJob takes job object as a single argument
+         * returns nothing but sends the payload to the corresponding method
+         * @param job job object with properties name and payload
+         */
+        const method = this.#jobTypes[job.name];
+        method(job.payload)
     };
 
-    function postUpdate(){ // posts update to the corresponding channel
-
+    #addTask(task) {
+        /**
+         * receives task from dispatchJob
+         * returns nothing but pushes task to the #taskArray
+         */
+        const taskId = task.id;
+        this.#taskDict.taskId = task;
     };
-    
-    function purgeMasterArray(){
-        masterArray = [];
-    };
 
-    return{
-        addProject,
-        addTask,
+    #addProject(project) {
+        /**
+         * receives project name (string) from dispatchJob
+         * returns nothing but pushes project to the #projectArray
+         */
+        this.#projectsArray.push(project);
     }
-};
+
+    #removeTask(task_id) {
+        /**
+         * receives task_id (string) from dispatchTask
+         * returns nothing, deletes task with task_id from #taskDict
+         */
+        delete this.#taskDict[task_id]
+    }
+
+    #removeProject(project_name) {
+        /**
+         * receives project_name (string) from dispatchTask
+         * returns nothing, removes the project from the array
+         */
+        const PROJECT_INDEX = this.#projectsArray.indexOf(project_name);
+        this.#projectsArray.splice(PROJECT_INDEX, PROJECT_INDEX);
+    }
+
+    alertDev() {
+        /**
+         * This method is here just to check what is happening inside the model
+         */
+        console.log(`Saved tasks: ${this.#taskDict.taskId}`);
+        console.log(`Saved projects: ${this.#projectsArray}`);
+    }
+}
+
+export { Model };
