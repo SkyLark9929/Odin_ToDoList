@@ -1,9 +1,9 @@
-import {Model} from '../model.ts';
-import {task, job, project, taskId, projectId} from "../interfaces/interfaces.ts";
-import {createTask} from "../factories/task.ts";
+import {Model} from '../model.js';
+import {task, job, project, taskId, projectId} from "../interfaces/interfaces.js";
+import {createTask} from "../factories/task.js";
 import {faker} from "@faker-js/faker/locale/en";
-import {createJob} from "../factories/jobs.ts";
-import {createProject} from "../factories/projects.ts";
+import {createJob} from "../factories/jobs.js";
+import {createProject} from "../factories/projects.js";
 import {describe, test, expect} from "vitest";
 
 describe('store_task', () => {

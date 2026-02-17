@@ -26,6 +26,11 @@ module.exports = {
             {
                 test: /\.(png|svg)$/i, // if i mention jpg here it will not let the css loader properly load the background image
                 use: 'url-loader',
+            },
+            {
+                test: /\.ts?$/,
+                loader: "ts-loader",
+                exclude: /node_module/,
             }
         ],
     },

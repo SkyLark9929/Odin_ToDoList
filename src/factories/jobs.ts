@@ -1,4 +1,4 @@
-import {job, task, project} from "../interfaces/interfaces.ts";
+import {job, task, project} from "../interfaces/interfaces.js";
 
 function createJob(name:string,payload:task|project):job {
     return {

@@ -3,8 +3,8 @@
     "outDir": "./built",
     "allowJs": true,
     "target": "es2024",
+    "module": "nodenext",
     "moduleResolution": "nodenext",
-    "allowImportingTsExtensions": true
   },
   "include": ["./src/**/*"]
 }
