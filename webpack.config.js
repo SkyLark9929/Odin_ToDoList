@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     mode: "development",
-    entry: "./src/source.js",
+    entry: "./src/source.ts",
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, "dist"),
@@ -37,6 +37,6 @@ module.exports = {
     ],
     devtool: "eval-source-map",
     devServer: {
-        watchFiles: ['./src/index.html', './src/style.css', './src/source.js'],
+        watchFiles: ['./src/index.html', './src/style.css', './src/source.ts'],
     }
 };
