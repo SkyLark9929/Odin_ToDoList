@@ -42,6 +42,6 @@ module.exports = {
     ],
     devtool: "eval-source-map",
     devServer: {
-        watchFiles: ['./src/index.html', './src/style.css', './src/source.ts'],
+        watchFiles: ['./src/index.html', './src/styles.css', './src/source.ts'],
     }
 };

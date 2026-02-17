@@ -1,4 +1,4 @@
-// import * as css from "./styles.css";
+import './styles.css'
 
 class Controller{
 
