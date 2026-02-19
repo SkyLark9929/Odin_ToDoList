@@ -16,16 +16,12 @@ module.exports = {
                 use: ["style-loader", "css-loader"],
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                test: /\.(woff|woff2|eot|ttf|otf|png|svg)$/i,
                 type:'asset/resource'
             },
             {
                 test: /\.html$/i,
                 loader: "html-loader",
-            },
-            {
-                test: /\.(png|svg)$/i, // if i mention jpg here it will not let the css loader properly load the background image
-                use: 'url-loader',
             },
             {
                 test: /\.ts?$/,

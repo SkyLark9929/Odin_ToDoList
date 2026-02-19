@@ -45,12 +45,15 @@ table {
 /* || general */
 :root{
 	--app-bg-color: #385061;
+	--app-color-medium: #314351;
 	--app-darker: #293641;
 	--main-font-color: #E5E9F0;
 	--secondary-font-color: #D8DEE9;
 	--app-highlight-color: #D08770;
+
 	--main-border-radius: 24px;
 	--button-border-radius: 12px;
+	--task-border-radius: 8px;
 }
 
 @font-face {
@@ -78,7 +81,14 @@ body {
 	justify-content: center;
 	align-items: center;
 
+	font-size: 16px;
     background-image: url(./images/background-image.jpg);
+
+	line-height: 1.25;
+}
+
+p {
+	color: var(--secondary-font-color);
 }
 
 /* || app */
@@ -106,6 +116,12 @@ body {
 	gap: 8px;
 }
 
+.task-flex{
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
 /* ||| Menu section */
 #menu-section{
 	background-color: var(--app-darker);
@@ -128,7 +144,7 @@ body {
 .second-level-header{
 	font-family: Kanit, serif;
 	color: var(--main-font-color);
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: bold;
 }
 
@@ -148,7 +164,7 @@ body {
 .button-text-wrapper{
 	width: 90%;
 	font-family: Kanit, serif;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 200;
 
 	color: var(--main-font-color);
@@ -167,4 +183,31 @@ body {
 /* ||| Task section */
 #task-section{
 	grid-area: task;
+}
+
+.task{
+	background-color: var(--app-color-medium);
+	border-radius: var(--task-border-radius);
+	padding: 8px;
+}
+
+.task-description{
+	font-size: 16px;
+}
+
+.name-toolbar-container{
+	display: flex;
+}
+
+.task-name{
+	margin-right: auto;
+}
+
+.icon-button{
+	border: none;
+	background-color: var(--app-color-medium)
+}
+
+.icon{
+	height: 25px;
 }
