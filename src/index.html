@@ -9,20 +9,25 @@
 <body>
     <div id="app-background">
         <aside id="menu-section" class="main-sections-flex">
-            <h1 class="top-level-header">Menu</h1>
-            <div id="list-section">
-                <h2 class="second-level-header">Lists</h2>
+            <div>
+                <h1 class="top-level-header">Lists</h1>
                 <hr>
-                <button class="list-button" title="Placeholder list force overflow">
-                    <div class="button-text-wrapper">Placeholder list force overflow</div>
-                </button>
-                <button class="list-button"  id="add-list" title="add new list">
-                    <div class="button-text-wrapper">add new list</div>
-                </button>                
             </div>
+            <button class="list-button" title="Placeholder list force overflow">
+                <span class="button-text-wrapper">Placeholder list force overflow</span>
+            </button>
+            <button class="list-button"  id="add-list" title="add new list">
+                <span class="button-text-wrapper">add new list</span>
+            </button>
         </aside>
         <main id="task-section" class="main-sections-flex">
-            <h1 class="top-level-header">Incoming tasks</h1>
+            <div>
+                <h1 class="top-level-header">Incoming tasks</h1>
+                <hr>
+            </div>
+            <button id="add-task-button" class="list-button" title="Add new task">
+                <span class="button-text-wrapper">Add new task</span>
+            </button>
         </main>
     </div>
 </body>
