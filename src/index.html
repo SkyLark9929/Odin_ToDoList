@@ -1,52 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thor</title>
-    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
-</head>
-<body>
+    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" />
+  </head>
+  <body>
     <div id="app-background">
-        <aside id="menu-section" class="main-sections-flex">
-            <div>
-                <h1 class="top-level-header">Lists</h1>
-                <hr>
-            </div>
-            <button class="list-button" title="Placeholder list force overflow">
-                <span class="button-text-wrapper">Placeholder list force overflow</span>
+      <aside id="menu-section" class="main-sections-flex">
+        <div>
+          <h1 class="top-level-header">Lists</h1>
+          <hr />
+        </div>
+        <button class="list-button" title="Placeholder list force overflow">
+          <span class="button-text-wrapper"
+            >Placeholder list force overflow</span
+          >
+        </button>
+        <button class="list-button" id="add-list" title="add new list">
+          <span class="button-text-wrapper">add new list</span>
+        </button>
+      </aside>
+      <main id="task-section" class="main-sections-flex">
+        <div>
+          <h1 class="top-level-header">Incoming tasks</h1>
+          <hr />
+        </div>
+        <button id="add-task-button" class="list-button" title="Add new task">
+          <span class="button-text-wrapper">Add new task</span>
+        </button>
+        <div id="placeholder-id" class="task task-flex">
+          <div class="name-toolbar-container">
+            <h2 class="task-name second-level-header">Very important task</h2>
+            <button class="icon-button" id="collapse">
+              <img class="icon" src="images/collapse.svg" alt="collapse" />
             </button>
-            <button class="list-button" id="add-list" title="add new list">
-                <span class="button-text-wrapper">add new list</span>
+            <button
+              class="icon-button"
+              id="remove-task-button"
+              title="Remove task"
+            >
+              <img class="icon" src="images/trash.svg" alt="remove" />
             </button>
-        </aside>
-        <main id="task-section" class="main-sections-flex">
-            <div>
-                <h1 class="top-level-header">Incoming tasks</h1>
-                <hr>
-            </div>
-            <button id="add-task-button" class="list-button" title="Add new task">
-                <span class="button-text-wrapper">Add new task</span>
-            </button>
-            <div id="placeholder-id" class="task task-flex">
-                <div class="name-toolbar-container">
-                    <h2 class="task-name second-level-header">Very important task</h2>
-                    <button class="icon-button" id="collapse">
-                        <img class="icon" src="images/collapse.svg" alt="collapse">
-                    </button>
-                    <button class="icon-button" id="remove-task-button" title="Remove task">
-                        <img class="icon" src="images/trash.svg" alt="remove">
-                    </button>
-                </div>
-                <p class="task-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
-        </main>
+          </div>
+          <p class="task-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </main>
     </div>
-</body>
+  </body>
 </html>

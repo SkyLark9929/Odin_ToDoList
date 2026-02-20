@@ -1,7 +1,5 @@
-import './styles.css'
-import './images/trash.svg'
-import './images/collapse.svg'
+import "./styles.css";
+import "./images/trash.svg";
+import "./images/collapse.svg";
 
-class Controller{
-
-}
+class Controller {}
